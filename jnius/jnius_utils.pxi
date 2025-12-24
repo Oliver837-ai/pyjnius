@@ -1,3 +1,7 @@
+
+# Python 3 compatibility: treat all strings as str
+base_string = str
+
 cdef str_for_c(s):
     return s.encode('utf-8')
 
@@ -477,7 +481,7 @@ cdef readable_sig(sig, is_var):
            'D': 'double',
            'F': 'float',
            'I': 'int',
-           'J': 'long',
+           'J': 'int',  # int (was 'long' in python2/Java)
            'S': 'short',
            'V': 'void',
            '[': 'array',
